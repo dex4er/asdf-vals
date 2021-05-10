@@ -1,6 +1,6 @@
 # asdf-vals
 
-[![Build Status](https://travis-ci.org/dex4er/asdf-vals.svg?branch=master)](https://travis-ci.org/dex4er/asdf-vals)
+[![Build Status](https://travis-ci.com/dex4er/asdf-vals.svg?branch=master)](https://travis-ci.com/dex4er/asdf-vals)
 
 [vals](https://github.com/variantdev/vals) plugin for the [asdf](https://github.com/asdf-vm/asdf) version manager.
 
