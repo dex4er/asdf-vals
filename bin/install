@@ -22,12 +22,12 @@ install() {
   case "$(uname -m)" in
     i386|i686|x86) arch="386";;
     x86_64) arch="amd64";;
-    aarch64) arch="arm64"
+    aarch64) arch="arm64";;
     *) arch="$(uname -m)"
   esac
 
   local download_url
-  download_url="https://github.com/variantdev/vals/releases/download/v${version}/vals_${version}_${arch}.tar.gz"
+  download_url="https://github.com/variantdev/vals/releases/download/v${version}/vals_${version}_${platform}_${arch}.tar.gz"
 
   mkdir -p "${bin_install_path}"
 
