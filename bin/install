@@ -2,38 +2,38 @@
 
 set -euo pipefail
 
-[ -z "${ASDF_INSTALL_TYPE+x}" ] && echo "ASDF_INSTALL_TYPE is required" && exit 1
-[ -z "${ASDF_INSTALL_VERSION+x}" ] && echo "ASDF_INSTALL_VERSION is required" && exit 1
-[ -z "${ASDF_INSTALL_PATH+x}" ] && echo "ASDF_INSTALL_PATH is required" && exit 1
+[[ -z ${ASDF_INSTALL_TYPE+x} ]] && echo "ASDF_INSTALL_TYPE is required" && exit 1
+[[ -z ${ASDF_INSTALL_VERSION+x} ]] && echo "ASDF_INSTALL_VERSION is required" && exit 1
+[[ -z ${ASDF_INSTALL_PATH+x} ]] && echo "ASDF_INSTALL_PATH is required" && exit 1
 
 install() {
-  local install_type=$1
-  [ "$install_type" != "version" ] && echo "intall type, $install_type, is not supported" && exit 1
+	local install_type=$1
+	[[ ${install_type} != "version" ]] && echo "intall type, ${install_type}, is not supported" && exit 1
 
-  local version=$2
-  local install_path=$3
+	local version=$2
+	local install_path=$3
 
-  local bin_install_path="$install_path/bin"
+	local bin_install_path="${install_path}/bin"
 
-  local platform
-  platform=$(uname | tr '[:upper:]' '[:lower:]')
+	local platform
+	platform=$(uname | tr '[:upper:]' '[:lower:]')
 
-  local arch
-  case "$(uname -m)" in
-    i386|i686|x86) arch="386";;
-    x86_64) arch="amd64";;
-    aarch64) arch="arm64";;
-    *) arch="$(uname -m)"
-  esac
+	local arch
+	case "$(uname -m)" in
+	i386 | i686 | x86) arch="386" ;;
+	x86_64) arch="amd64" ;;
+	aarch64) arch="arm64" ;;
+	*) arch="$(uname -m)" ;;
+	esac
 
-  local download_url
-  download_url="https://github.com/variantdev/vals/releases/download/v${version}/vals_${version}_${platform}_${arch}.tar.gz"
+	local download_url
+	download_url="https://github.com/variantdev/vals/releases/download/v${version}/vals_${version}_${platform}_${arch}.tar.gz"
 
-  mkdir -p "${bin_install_path}"
+	mkdir -p "${bin_install_path}"
 
-  echo "Downloading vals from ${download_url}"
-  cd "${bin_install_path}"
-  curl -sL "$download_url" | tar zx vals
+	echo "Downloading vals from ${download_url}"
+	cd "${bin_install_path}"
+	curl -sL "${download_url}" | tar zx vals
 }
 
-install "$ASDF_INSTALL_TYPE" "$ASDF_INSTALL_VERSION" "$ASDF_INSTALL_PATH"
+install "${ASDF_INSTALL_TYPE}" "${ASDF_INSTALL_VERSION}" "${ASDF_INSTALL_PATH}"
