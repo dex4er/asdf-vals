@@ -2,7 +2,7 @@
 
 [![CI](https://github.com/dex4er/asdf-vals/actions/workflows/ci.yml/badge.svg)](https://github.com/dex4er/asdf-vals/actions/workflows/ci.yml)
 
-[vals](https://github.com/variantdev/vals) plugin for the [asdf](https://github.com/asdf-vm/asdf) version manager.
+[vals](https://github.com/helmfile/vals) plugin for the [asdf](https://github.com/asdf-vm/asdf) version manager.
 
 ## Install
 
