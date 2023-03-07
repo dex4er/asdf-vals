@@ -27,7 +27,7 @@ install() {
 	esac
 
 	local download_url
-	download_url="https://github.com/variantdev/vals/releases/download/v${version}/vals_${version}_${platform}_${arch}.tar.gz"
+	download_url="https://github.com/helmfile/vals/releases/download/v${version}/vals_${version}_${platform}_${arch}.tar.gz"
 
 	mkdir -p "${bin_install_path}"
 
