@@ -40,7 +40,11 @@ function install() {
 	platform=$(uname | tr '[:upper:]' '[:lower:]')
 
 	local arch
-	arch=$(arch)
+	if command -v arch >/dev/null; then
+		arch=$(arch)
+	else
+		arch=$(uname -m)
+	fi
 	case "${arch}" in
 	i?86) arch=386 ;;
 	x86_64) arch=amd64 ;;
