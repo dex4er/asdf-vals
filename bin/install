@@ -40,9 +40,8 @@ function install() {
 	platform=$(uname | tr '[:upper:]' '[:lower:]')
 
 	local arch
-	if command -v arch >/dev/null; then
-		arch=$(arch)
-	else
+	arch=$(arch 2>/dev/null)
+	if [[ -z ${arch} ]]; then
 		arch=$(uname -m)
 	fi
 	case "${arch}" in
